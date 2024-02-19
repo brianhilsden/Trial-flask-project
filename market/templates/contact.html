@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+Contact Us
+{%endblock%}
+
+{%block content%}
+<main>
+    <div class="contact">
+        <h2>Our Contact Form</h2>
+            <form method="get">
+                <fieldset>
+                    <legend>Send us a message</legend>
+                    <p><label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required autofocus autocomplete="on"> </p> 
+                    <p>
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email" placeholder="johndoe@xyz.com" required autocomplete="on">
+                    </p>
+                    <label for="message">Your Message:</label> <br>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Type your message here" required></textarea>
+                </fieldset>
+                <button type="submit">Send</button>
+                <button type="reset">Reset</button>
+            </form>
+    </div>
+    <div class="location">
+        <h2>Our Location</h2>
+            <address>
+                 <br>
+                 Revlon Professional Plaza, 3rd Floor,<br> Tubman road or Biashara Street.,<br> Opposite Total petrol station, Kimathi Street, Near Nation Center,<br> Nairobi CBD<br> <br>
+                Phone: <a href="tel:0717155976">0717155976</a><br>
+                Email:><a href="mailto:brianhilsden@gmail.com">brianhilsden@gmail.com</a>
+
+
+            </address>
+    </div>
+            
+         
+
+        </main>
+        <footer>
+            <p>Copyright &copy;BrianHilsden</p>
+        </footer> 
+        <style>
+         
+         
+               @media screen and (min-width:576px) {
+                main,footer{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                text-align: center;
+               font-size: larger;
+                 
+            }}
+           
+         
+        </style>       
+{%endblock%}

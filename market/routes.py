@@ -22,7 +22,7 @@ def market_page():
         if p_item_object:
             if current_user.can_purchase(p_item_object):
                 p_item_object.buy(current_user)
-                flash(f"Congratulations! You purchased {p_item_object.name} for {p_item_object.price}$", category='success')
+                flash(f"Congratulations! You purchased {p_item_object.name} for {p_item_object.price}ksh", category='success')
             else:
                 flash(f"Unfortunately, you don't have enough money to purchase {p_item_object.name}!", category='danger')
         #Sell Item Logic
@@ -82,3 +82,7 @@ def logout_page():
     logout_user()
     flash("You have been logged out!", category='info')
     return redirect(url_for("home_page"))
+
+@app.route('/contact')
+def contact_page():
+    return render_template('contact.html')

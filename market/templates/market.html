@@ -15,7 +15,6 @@ Market Page
                <!-- Your Columns HERE -->
                <th scope="col">ID</th>
                <th scope="col">Name</th>
-               <th scope="col">Barcode</th>
                <th scope="col">Price</th>
                <th scope="col">Options</th>
             </tr>
@@ -27,8 +26,7 @@ Market Page
             <tr>
                <td>{{ item.id }}</td>
                <td>{{ item.name }}</td>
-               <td>{{ item.barcode }}</td>
-               <td>{{ item.price }}$</td>
+               <td>{{ item.price }}ksh</td>
                <td>
                   <button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.id }}">More Info</button>
                   <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#Modal-PurchaseConfirm-{{ item.id }}">Purchase this Item</button>
@@ -54,7 +52,7 @@ Market Page
                               Sell this Item
                           </button>
                           <p class="card-text"><strong>
-                              This item costs {{ owned_item.price }}$
+                              This item costs {{ owned_item.price }}ksh
                           </strong></p>
                       </div>
                   </div>
