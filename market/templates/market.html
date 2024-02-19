@@ -4,7 +4,7 @@ Market Page
 {% endblock %}
 {% block content %}
 
-<div class="row" style="margin-top:20px; margin-left:20px">
+<div class="row" style="margin-top:20px; margin-left:0.2rem">
    <div>
        <h2>Available items on the Market</h2>
        <p>Click on one of the items to start buying</p>
@@ -27,6 +27,7 @@ Market Page
                <td>{{ item.price }}ksh</td>
                <td>
                   <button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.id }}">More Info</button>
+                  &nbsp;&nbsp;
                   <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#Modal-PurchaseConfirm-{{ item.id }}">Purchase this Item</button>
                </td>
             </tr>
@@ -59,4 +60,7 @@ Market Page
         </div>
    </div>
 </div>
+<style>
+   
+</style>
 {% endblock %}
