@@ -22,7 +22,7 @@ def market_page():
         if p_item_object:
             if current_user.can_purchase(p_item_object):
                 p_item_object.buy(current_user)
-                flash(f"Congratulations! You purchased {p_item_object.name} for {p_item_object.price}ksh.Your remaining balance is {current_user.prettier_budget}", category='success')
+                flash(f"Congratulations! You purchased {p_item_object.name} for {p_item_object.price}ksh.You can sell it back below. Remaining balance is {current_user.prettier_budget}.", category='success')
             else:
                 flash(f"Unfortunately, you don't have enough money to purchase {p_item_object.name}!", category='danger')
         #Sell Item Logic
