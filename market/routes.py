@@ -22,7 +22,7 @@ def market_page():
         if p_item_object:
             if current_user.can_purchase(p_item_object):
                 p_item_object.buy(current_user)
-                flash(f"Congratulations! You purchased {p_item_object.name} for {p_item_object.price}ksh", category='success')
+                flash(f"Congratulations! You purchased {p_item_object.name} for {p_item_object.price}ksh.Your remaining balance is {current_user.prettier_budget}", category='success')
             else:
                 flash(f"Unfortunately, you don't have enough money to purchase {p_item_object.name}!", category='danger')
         #Sell Item Logic
@@ -31,7 +31,7 @@ def market_page():
         if s_item_object:
             if current_user.can_sell(s_item_object):
                 s_item_object.sell(current_user)
-                flash(f"Congratulations! You sold {s_item_object.name} back to market!", category='success')
+                flash(f"Congratulations! You sold {s_item_object.name} back to market!Your balance is now {current_user.prettier_budget }", category='success')
             else:
                 flash(f"Something went wrong with selling {s_item_object.name}", category='danger')
 
@@ -53,7 +53,7 @@ def register_page():
         db.session.add(user_to_create)
         db.session.commit()
         login_user(user_to_create)
-        flash(f"Account created successfully! You are now logged in as {user_to_create.username}", category='success')
+        flash(f"Account created successfully! You are now logged in as {user_to_create.username}.Your starting balance is { current_user.prettier_budget }>Happy trading", category='success')
         return redirect(url_for('market_page'))
     if form.errors != {}: #If there are not errors from the validations
         for err_msg in form.errors.values():
@@ -70,7 +70,7 @@ def login_page():
                 attempted_password=form.password.data
         ):
             login_user(attempted_user)
-            flash(f'Success! You are logged in as: {attempted_user.username}', category='success')
+            flash(f'Success! You are logged in as: {attempted_user.username}.Your balance is { current_user.prettier_budget }', category='success')
             return redirect(url_for('market_page'))
         else:
             flash('Username and password are not match! Please try again', category='danger')
