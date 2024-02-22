@@ -16,7 +16,6 @@ def market_page():
     purchase_form = PurchaseItemForm()
     selling_form = SellItemForm()
     if request.method == "POST":
-        #Purchase Item Logic
         purchased_item = request.form.get('purchased_item')
         p_item_object = Item.query.filter_by(name=purchased_item).first()
         if p_item_object:
@@ -55,7 +54,7 @@ def register_page():
         login_user(user_to_create)
         flash(f"Account created successfully! You are now logged in as {user_to_create.username}.Your starting balance is { current_user.prettier_budget }>Happy trading", category='success')
         return redirect(url_for('market_page'))
-    if form.errors != {}: #If there are not errors from the validations
+    if form.errors != {}:
         for err_msg in form.errors.values():
             flash(f'There was an error with creating a user: {err_msg}', category='danger')
 
