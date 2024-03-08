@@ -21,8 +21,8 @@ def market_page():
         if p_item_object:
             if current_user.can_purchase(p_item_object):
                 p_item_object.buy(current_user)
-                flash(f"Congratulations! You purchased {p_item_object.name} for {p_item_object.price}ksh.You can sell it back below. Remaining balance is {current_user.prettier_budget}.", category='success')
             else:
+                flash(f"Congratulations! You purchased {p_item_object.name} for {p_item_object.price}ksh.You can sell it back below. Remaining balance is {current_user.prettier_budget}.", category='success')
                 flash(f"Unfortunately, you don't have enough money to purchase {p_item_object.name}!", category='danger')
         #Sell Item Logic
         sold_item = request.form.get('sold_item')
@@ -65,7 +65,7 @@ def login_page():
     form = LoginForm()
     if form.validate_on_submit():
         attempted_user = User.query.filter_by(username=form.username.data).first()
-        if attempted_user and attempted_user.check_password_correction(
+        if attempted_user and attempted_user.check_password_correction (
                 attempted_password=form.password.data
         ):
             login_user(attempted_user)
